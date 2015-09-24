@@ -5,13 +5,22 @@ const app = express();
 // setup dropbox
 const dropbox_key = process.env.DROPBOX_KEY;
 const dropbox_secret = process.env.DROPBOX_SECRET;
+const dropbox_token = process.env.DROPBOX_TOKEN;
 const dropbox_client = new Dropbox.Client({ 
   key: dropbox_key,
-  secret: dropbox_secret
+  secret: dropbox_secret,
+  token: dropbox_token
 });
 
 app.get('/', function(req, res) {
-  res.send('Hello World!');
+  dropbox_client.readdir("/",
+                         {},
+                         function(error, files, stat, file_stats) {
+                           console.log('query finished');
+                           res.send(error);
+                         });
+                         
+
 });
 
 const server = app.listen(3000, function() {
