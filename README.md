@@ -1,7 +1,7 @@
-== Dependencies ==
+# Dependencies
 Node
 
-== Running ==
+# Running
 * set dropbox credentials:
     ```shell
     $ export DROPBOX_KEY=[the key]
