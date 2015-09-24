@@ -1,0 +1,24 @@
+{
+  "name": "staff-photos",
+  "version": "0.0.1",
+  "description": "Shows our all our beautiful employees",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "express": "4.13.3",
+    "dropbox": "0.10.3",
+    "gulp": "~3.8.10",
+    "requirejs": "~2.1.15",
+    "jquery": "~2.1.1",
+    "jshint-stylish": "~1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.blurb.com/blurb/bookshare"
+  },
+  "author": "Baz Karam [bk@thinkloop.com]",
+  "license": "ISC"
+}
