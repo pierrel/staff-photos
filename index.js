@@ -1,5 +1,7 @@
 const Dropbox = require('dropbox');
 const express = require('express');
+const html = require('./html');
+
 const app = express();
 
 // setup dropbox
@@ -12,13 +14,22 @@ const dropbox_client = new Dropbox.Client({
   token: dropbox_token
 });
 
+function showThumbs(res, entries) {
+  var output = '';
+  entries.forEach(function(entry) {
+    output = output + html.element('div', null, [entry]);
+  });
+  
+  res.send(output);
+}
+
 app.get('/', function(req, res) {
   dropbox_client.readdir('/Photos/Sample Album', function(error, entries) {
     if (error) {
       res.send('there was an error');
       console.log(error);
     } else {
-      res.send(entries);
+      showThumbs(res, entries);
     }
   });
 });
