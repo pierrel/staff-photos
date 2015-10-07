@@ -8,4 +8,4 @@ Node
 
 == Running ==
 * `npm install`
-* `node index.js`
+* `./node_modules/nodemon/bin/nodemon.js index.js`
