@@ -14,6 +14,8 @@ const dropbox_client = new Dropbox.Client({
   token: dropbox_token
 });
 
+const PHOTO_DIR = '/Photos/Sample Album'; 
+
 function showThumbs(res, entries) {
   var output = '';
   entries.forEach(function(entry) {
@@ -24,7 +26,7 @@ function showThumbs(res, entries) {
 }
 
 app.get('/', function(req, res) {
-  dropbox_client.readdir('/Photos/Sample Album', function(error, entries) {
+  dropbox_client.readdir(PHOTO_DIR, function(error, entries) {
     if (error) {
       res.send('there was an error');
       console.log(error);
