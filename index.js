@@ -17,12 +17,14 @@ const dropbox_client = new Dropbox.Client({
 const PHOTO_DIR = '/Photos/Sample Album'; 
 
 function showThumbs(res, entries) {
-  var output = '';
-  entries.forEach(function(entry) {
-    output = output + html.element('div', null, [entry]);
-  });
+  const thumbs = entries.map(function(entry) {
+    const url = dropbox_client.thumbnailUrl(entry);
+    return url 
+  }).map(function(thumbnail) {
+    return html.element('img', {src: thumbnail}, '');
+  }).join("\n");
   
-  res.send(output);
+  res.send(thumbs);
 }
 
 app.get('/', function(req, res) {
