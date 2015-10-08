@@ -4,7 +4,6 @@ const html = require('./html');
 
 const app = express();
 
-// setup dropbox
 const dropbox_key = process.env.DROPBOX_KEY;
 const dropbox_secret = process.env.DROPBOX_SECRET;
 const dropbox_token = process.env.DROPBOX_APP_KEY;
