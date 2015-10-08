@@ -1,7 +1,7 @@
 function argTransform(args) {
   var htmlProps = [];
   Object.keys(args).forEach(function(key) {
-    htmlProps.push('' + property +  '=' + '"' + args[property] + '"');
+    htmlProps.push('' + key +  '=' + '"' + args[key] + '"');
   });
   
   return htmlProps.join(' ');
