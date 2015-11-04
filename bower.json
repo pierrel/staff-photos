@@ -1,0 +1,30 @@
+{
+  "name": "staff",
+  "description": "Blurb staff photos",
+  "main": [
+    "index.js",
+    "html.js"
+  ],
+  "dependencies": {
+    "photoswipe": "4.1.0"
+  },
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "dropbox",
+    "gallery"
+  ],
+  "authors": [
+    "Pierre Larochelle"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true
+}
