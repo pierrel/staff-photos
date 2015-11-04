@@ -39,14 +39,14 @@ function layout(innerHTML) {
                                     [
                                       html.element('link', 
                                                    {rel: 'stylesheet',
-                                                    href: '/public/photoswipe/dist/photoswipe.css'}),
+                                                    href: '/public/bower_components/photoswipe/dist/photoswipe.css'}),
                                       html.element('link',
                                                    {rel: 'stylesheet',
-                                                    href: '/public/photoswipe/dist/default-skin/default-skin.css'}),
+                                                    href: '/public/bower_components/photoswipe/dist/default-skin/default-skin.css'}),
                                       html.element('script',
-                                                   {src: '/public/photoswipe/dist/photoswipe.min.js'}),
+                                                   {src: '/public/bower_components/photoswipe/dist/photoswipe.min.js'}),
                                       html.element('script',
-                                                   {src: '/public/photoswipe/dist/photoswipe-ui-default.min.js'})
+                                                   {src: '/public/bower_components/photoswipe/dist/photoswipe-ui-default.min.js'})
                                     ]),
                       html.element('body',
                                    {},
@@ -68,7 +68,7 @@ app.get('/', function(req, res) {
   });
 });
 
-app.use('/public', express.static('bower_components'));
+app.use('/public', express.static('public'));
 
 const server = app.listen(3000, function() {
   const addy = server.address();
