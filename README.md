@@ -1,12 +1,16 @@
 # Dependencies
 Node
 
-== Env setup ==
+Env setup
+=========
+
 * `export DROPBOX_KEY=[your key]`
 * `export DROPBOX_SECRET=[your secret]`
 * `export DROPBOX_APP_KEY=[your oauth token]`
 
-== Running ==
+Running
+=======
+
 * `npm install`
 * `./node_modules/bower/bin/bower install`
 * `./scripts/devserver`
