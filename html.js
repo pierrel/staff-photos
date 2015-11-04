@@ -7,9 +7,7 @@ function argTransform(args) {
   return htmlProps.join(' ');
 }
 
-
-
-exports.element = function(name, args, otherElements) {
+function element(name, args, otherElements) {
   var htmlString = '<' + name;
 
   if (args) {
@@ -28,3 +26,20 @@ exports.element = function(name, args, otherElements) {
   
   return htmlString;
 }
+
+
+function include_css(path) {
+  return element('link',
+                 {rel: 'stylesheet',
+                  href: path});
+}
+
+function include_js(path) {
+  return element('script',
+                 {src: path});
+}
+
+
+exports.element = element;
+exports.include_js = include_js;
+exports.include_css = include_css;

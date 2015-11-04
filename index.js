@@ -37,16 +37,11 @@ function layout(innerHTML) {
                       [html.element('head',
                                     {},
                                     [
-                                      html.element('link', 
-                                                   {rel: 'stylesheet',
-                                                    href: '/public/bower_components/photoswipe/dist/photoswipe.css'}),
-                                      html.element('link',
-                                                   {rel: 'stylesheet',
-                                                    href: '/public/bower_components/photoswipe/dist/default-skin/default-skin.css'}),
-                                      html.element('script',
-                                                   {src: '/public/bower_components/photoswipe/dist/photoswipe.min.js'}),
-                                      html.element('script',
-                                                   {src: '/public/bower_components/photoswipe/dist/photoswipe-ui-default.min.js'})
+                                      html.include_css('/public/bower_components/photoswipe/dist/photoswipe.css'),
+                                      html.include_css('/public/bower_components/photoswipe/dist/default-skin/default-skin.css'),
+                                      html.include_js('/public/bower_components/photoswipe/dist/photoswipe.min.js'),
+                                      html.include_js('/public/bower_components/photoswipe/dist/photoswipe-ui-default.min.js'),
+                                      html.include_js('/public/js/main.js')
                                     ]),
                       html.element('body',
                                    {},
