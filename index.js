@@ -19,7 +19,7 @@ function showThumbs(res, entries) {
   const thumbs = entries.map(function(entry) {
     return dropbox_client.thumbnailUrl(entry);
   }).map(function(thumbnail) {
-    return html.element('img', {src: thumbnail}, '');
+    return html.element('img', {src: thumbnail});
   }).join("\n");
   
   res.send(thumbs);
