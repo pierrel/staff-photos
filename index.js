@@ -17,8 +17,7 @@ const PHOTO_DIR = '/Photos/Sample Album';
 
 function showThumbs(res, entries) {
   const thumbs = entries.map(function(entry) {
-    const url = dropbox_client.thumbnailUrl(entry);
-    return url 
+    return dropbox_client.thumbnailUrl(entry);
   }).map(function(thumbnail) {
     return html.element('img', {src: thumbnail}, '');
   }).join("\n");
@@ -32,7 +31,8 @@ app.get('/', function(req, res) {
       res.send('there was an error');
       console.log(error);
     } else {
-      showThumbs(res, entries);
+      const fullEntries = entries.map(function(entry) { return PHOTO_DIR + '/' + entry; });
+      showThumbs(res, fullEntries);
     }
   });
 });
