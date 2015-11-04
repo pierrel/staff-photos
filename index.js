@@ -17,12 +17,43 @@ const PHOTO_DIR = '/Photos/Sample Album';
 
 function showThumbs(res, entries) {
   const thumbs = entries.map(function(entry) {
-    return dropbox_client.thumbnailUrl(entry);
-  }).map(function(thumbnail) {
-    return html.element('img', {src: thumbnail});
+    return [dropbox_client.thumbnailUrl(entry, {size: 'xl'}),
+            dropbox_client.thumbnailUrl(entry, {size: 'large'})];
+  }).map(function(urls) {
+    const full = urls[0];
+    const thumbnail = urls[1];
+
+    return html.element('a', 
+                        {href: full}, 
+                        [html.element('img', {src: thumbnail})]);
   }).join("\n");
   
-  res.send(thumbs);
+  res.send(layout(thumbs));
+}
+
+function layout(innerHTML) {
+  return html.element('html', 
+                      {}, 
+                      [html.element('head',
+                                    {},
+                                    [
+                                      html.element('link', 
+                                                   {rel: 'stylesheet',
+                                                    href: '/public/photoswipe/dist/photoswipe.css'}),
+                                      html.element('link',
+                                                   {rel: 'stylesheet',
+                                                    href: '/public/photoswipe/dist/default-skin/default-skin.css'}),
+                                      html.element('script',
+                                                   {src: '/public/photoswipe/dist/photoswipe.min.js'}),
+                                      html.element('script',
+                                                   {src: '/public/photoswipe/dist/photoswipe-ui-default.min.js'})
+                                    ]),
+                      html.element('body',
+                                   {},
+                                   [innerHTML])
+                      ]);
+                      
+  return innerHTML;
 }
 
 app.get('/', function(req, res) {
@@ -36,6 +67,8 @@ app.get('/', function(req, res) {
     }
   });
 });
+
+app.use('/public', express.static('bower_components'));
 
 const server = app.listen(3000, function() {
   const addy = server.address();

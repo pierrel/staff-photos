@@ -8,4 +8,5 @@ Node
 
 == Running ==
 * `npm install`
+* `./node_modules/bower/bin/bower install`
 * `./scripts/devserver`
