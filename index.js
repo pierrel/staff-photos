@@ -24,9 +24,9 @@ function showThumbs(res, entries) {
     const full = urls[0];
     const thumbnail = urls[1];
 
-    return html.element('a', 
-                        {href: full}, 
-                        [html.element('img', {src: thumbnail})]);
+    return html.element('div', 
+                        {'data-thumb': thumbnail, 'data-full': full, 'class':'image-data'}, 
+                        '');
   }).join("\n");
   
   res.send(view.layout(thumbs));
