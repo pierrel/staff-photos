@@ -1,6 +1,7 @@
 const Dropbox = require('dropbox');
 const express = require('express');
 const html = require('./html');
+const view = require('./view');
 
 const app = express();
 
@@ -28,28 +29,9 @@ function showThumbs(res, entries) {
                         [html.element('img', {src: thumbnail})]);
   }).join("\n");
   
-  res.send(layout(thumbs));
+  res.send(view.layout(thumbs));
 }
 
-function layout(innerHTML) {
-  return html.element('html', 
-                      {}, 
-                      [html.element('head',
-                                    {},
-                                    [
-                                      html.include_css('/public/bower_components/photoswipe/dist/photoswipe.css'),
-                                      html.include_css('/public/bower_components/photoswipe/dist/default-skin/default-skin.css'),
-                                      html.include_js('/public/bower_components/photoswipe/dist/photoswipe.min.js'),
-                                      html.include_js('/public/bower_components/photoswipe/dist/photoswipe-ui-default.min.js'),
-                                      html.include_js('/public/js/main.js')
-                                    ]),
-                      html.element('body',
-                                   {},
-                                   [innerHTML])
-                      ]);
-                      
-  return innerHTML;
-}
 
 app.get('/', function(req, res) {
   dropbox_client.readdir(PHOTO_DIR, function(error, entries) {
