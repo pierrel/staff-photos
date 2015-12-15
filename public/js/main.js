@@ -9,8 +9,8 @@ for (var i = 0; i < len; i++) {
   imageElements.push({
     src: image.getAttribute('data-full'),
     msrc: image.getAttribute('data-thumb'),
-    w: 400,
-    h: 400
+    w: 1024,
+    h: 768
   });
 }
 
