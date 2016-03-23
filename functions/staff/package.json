@@ -7,17 +7,15 @@
     "nodemon": "1.7.1"
   },
   "dependencies": {
-    "express": "4.13.3",
-    "dropbox": "0.10.3",
-    "bower": "1.4.1"
+    "dropbox": "0.10.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "http://git.blurb.com/blurb/bookshare"
+    "url": "http://git.blurb.com/pierrel/staff-photos"
   },
-  "author": "Baz Karam [bk@thinkloop.com]",
+  "author": "Pierre Larochelle",
   "license": "ISC"
 }
