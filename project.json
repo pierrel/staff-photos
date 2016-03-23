@@ -1,0 +1,9 @@
+
+{
+  "name": "staff-photos",
+  "description": "Get and show all images in a drop dir",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::649192496514:role/APIGatewayLambdaExecRole",
+  "environment": {}
+}
